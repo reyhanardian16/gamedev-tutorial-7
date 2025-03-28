@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://eb458lctfu7d"]
+
+[ext_resource type="PackedScene" uid="uid://d0dvj6mb2tyxn" path="res://scenes/player.tscn" id="1_5lqpt"]
+[ext_resource type="PackedScene" uid="uid://djweoado20bp" path="res://scenes/obj_lamp.tscn" id="2_gawm5"]
+[ext_resource type="PackedScene" uid="uid://ianctp1vye78" path="res://scenes/area_trigger.tscn" id="3_4eyuj"]
+
+[node name="World 1" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+use_collision = true
+
+[node name="Room 1" type="CSGBox3D" parent="CSGCombiner3D"]
+use_collision = true
+flip_faces = true
+size = Vector3(70, 10, 15)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.45196, 0)
+flip_faces = true
+size = Vector3(10, 5, 15)
+
+[node name="Player" parent="." instance=ExtResource("1_5lqpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.77526, 0)
+
+[node name="ObjLamp" parent="." instance=ExtResource("2_gawm5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71897, -4.0205, -1.42702)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+omni_range = 100000.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 4, 0)
+omni_range = 100000.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 4, 0)
+omni_range = 100000.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.864, -5.76171, -0.236)
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0007, -5.76171, -0.236)
+use_collision = true
+size = Vector3(2.65192, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.925, -5.76171, -0.236)
+use_collision = true
+size = Vector3(3.92639, 1, 1)
+
+[node name="Area Trigger" parent="." instance=ExtResource("3_4eyuj")]
+transform = Transform3D(0.842523, 0, 0, 0, 0.842523, 0, 0, 0, 0.842523, 44.375, -2.04709, 0)
+sceneName = "level_1"

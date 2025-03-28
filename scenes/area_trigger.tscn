@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ianctp1vye78"]
+
+[ext_resource type="Script" uid="uid://bvlrtmyccfk6c" path="res://goal_area.gd" id="1_q5v47"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hsyun"]
+radius = 2.92667
+
+[sub_resource type="SphereMesh" id="SphereMesh_sudej"]
+
+[node name="Area Trigger" type="Area3D"]
+script = ExtResource("1_q5v47")
+sceneName = "Level 1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_hsyun")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(5.59349, 0, 0, 0, 5.59349, 0, 0, 0, 5.59349, 0, 0, 0)
+mesh = SubResource("SphereMesh_sudej")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
